@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class AccountActivityStepDefs {
@@ -29,10 +30,15 @@ public class AccountActivityStepDefs {
 //        new LoginPage().login(username,password);
 //        **  == Just try something ==  **
 
+
+//          For pass to security FOR CHROME ( 2 Steps )
+        Driver.get().findElement(By.id("details-button")).click();
+        Driver.get().findElement(By.id("proceed-link")).click();
+
     }
 
     @When("the user clicks on Savings link on the Account Summary page")
-    public void the_user_clicks_on_Savings_link_on_the_Account_Summary_page() {
+    public void the_user_clicks_on_Savings_link_on_the_Account_Summary_page() throws InterruptedException {
 
         new AccountSummary().savings1.click();
 
