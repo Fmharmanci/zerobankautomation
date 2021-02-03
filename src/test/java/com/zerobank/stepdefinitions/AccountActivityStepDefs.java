@@ -17,16 +17,10 @@ public class AccountActivityStepDefs {
     @Given("the user is logged in")
     public void the_user_is_logged_in() throws InterruptedException {
         Driver.get().get(ConfigurationReader.get("url"));
-        Thread.sleep(2000);
-       new MainPage().signButton.click();
-       Thread.sleep(2000);
 
-//       new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
+        new MainPage().signButton.click();
 
-        String username = ConfigurationReader.get("username");
-        String password = ConfigurationReader.get("password");
-
-        new LoginPage().login(username,password);
+        new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
 
     }
 
@@ -51,7 +45,7 @@ public class AccountActivityStepDefs {
 
         Select select = new Select(new AccountActivity().accOptionSelect);
         System.out.println("first option = " + select.getFirstSelectedOption().getText());
-        Assert.assertEquals("Savings",select.getFirstSelectedOption().getText());
+        Assert.assertEquals("Savings", select.getFirstSelectedOption().getText());
 
     }
 
