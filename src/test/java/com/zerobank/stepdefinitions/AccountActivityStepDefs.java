@@ -16,11 +16,18 @@ public class AccountActivityStepDefs {
 
     @Given("the user is logged in")
     public void the_user_is_logged_in() throws InterruptedException {
+
         Driver.get().get(ConfigurationReader.get("url"));
-
         new MainPage().signButton.click();
-
         new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
+
+//        **  == Just try something ==  **
+//        Driver.get().get(ConfigurationReader.get("url"));
+//        new MainPage().signButton.click();
+//        String username = ConfigurationReader.get("username");
+//        String password = ConfigurationReader.get("password");
+//        new LoginPage().login(username,password);
+//        **  == Just try something ==  **
 
     }
 
@@ -34,7 +41,8 @@ public class AccountActivityStepDefs {
     @Then("the Account Activity page should be displayed")
     public void the_Account_Activity_page_should_be_displayed() {
 
-        Assert.assertTrue(new AccountActivity().pageSubTitle().contains("Account Activity"));
+        Assert.assertTrue(Driver.get().getTitle().contains("Account Activity"));
+
 //        String accActivity = new AccountActivity().pageSubTitle();
 //        Assert.assertTrue(accActivity.contains("Account Activity"));
 

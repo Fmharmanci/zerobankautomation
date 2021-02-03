@@ -7,15 +7,13 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
-    @FindBy(xpath = "//title")
-    public WebElement pageSubTitle;
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
 
-    public String pageSubTitle(){
-        return pageSubTitle.getText();
+    public String getPageSubTitle(){
+        return Driver.get().getTitle();
     }
 
 }
