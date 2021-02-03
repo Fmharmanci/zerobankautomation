@@ -5,6 +5,7 @@ import com.zerobank.pages.AccountSummary;
 import com.zerobank.pages.LoginPage;
 import com.zerobank.pages.MainPage;
 import com.zerobank.utilities.ConfigurationReader;
+import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,10 +15,18 @@ import org.openqa.selenium.support.ui.Select;
 public class AccountActivityStepDefs {
 
     @Given("the user is logged in")
-    public void the_user_is_logged_in() {
-
+    public void the_user_is_logged_in() throws InterruptedException {
+        Driver.get().get(ConfigurationReader.get("url"));
+        Thread.sleep(2000);
        new MainPage().signButton.click();
-       new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
+       Thread.sleep(2000);
+
+//       new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
+
+        String username = ConfigurationReader.get("username");
+        String password = ConfigurationReader.get("password");
+
+        new LoginPage().login(username,password);
 
     }
 
