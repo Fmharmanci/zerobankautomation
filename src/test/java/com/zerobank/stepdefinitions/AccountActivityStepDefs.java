@@ -1,9 +1,6 @@
 package com.zerobank.stepdefinitions;
 
-import com.zerobank.pages.AccountActivity;
-import com.zerobank.pages.AccountSummary;
-import com.zerobank.pages.LoginPage;
-import com.zerobank.pages.MainPage;
+import com.zerobank.pages.*;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.After;
@@ -114,9 +111,9 @@ public class AccountActivityStepDefs {
     }
 
 //    Why this @After is not working into the hooks java class....
-//    @After
-//    public void lastStep(){
-//        Driver.closeDriver();
-//    }
+    @After
+    public void lastStep(){
+        Driver.closeDriver();
+    }
 
 }
