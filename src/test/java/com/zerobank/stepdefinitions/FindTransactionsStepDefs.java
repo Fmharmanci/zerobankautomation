@@ -20,21 +20,27 @@ public class FindTransactionsStepDefs {
     @When("the user enters date range from “{int}-{int}-{int}” to “{int}-{int}-{int}”")
     public void the_user_enters_date_range_from_to(Integer fromYear, Integer fromMonth, Integer fromDay, Integer toYear, Integer toMonth, Integer toDay) throws InterruptedException {
 
-        String fYear = new Integer(fromYear).toString();
-        String fMonth = new Integer(fromMonth).toString();
-        String fDay = new Integer(fromDay).toString();
 
-        String fromDate = fYear+"-"+fMonth+"-"+fDay;
+        System.out.println("fromYear = " + fromYear);
+        System.out.println("fromMonth = " + fromMonth);
+        System.out.println("fromDay = " + fromDay);
+        System.out.println("toYear = " + toYear);
+        System.out.println("toMonth = " + toMonth);
+        System.out.println("toDay = " + toDay);
 
-        new AccountActivity().fromDateInput.sendKeys(fromDate);
+//        new AccountActivity().fromDateInput.sendKeys(fromDate);
+//        new AccountActivity().toDateInput.sendKeys(toDate);
+//        new AccountActivity().submitButton.click();
+//        Thread.sleep(3000);
 
     }
 
     @When("clicks search")
     public void clicks_search() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+
+        new AccountActivity().submitButton.click();
+
+        }
 
     @Then("results table should only show transactions dates between “{int}-{int}-{int}” to “{int}-{int}-{int}”")
     public void results_table_should_only_show_transactions_dates_between_to(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {

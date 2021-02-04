@@ -27,25 +27,22 @@ public class testtttt {
         Driver.get().findElement(By.id("proceed-link")).click();
 
 
-        new AccountSummary().accountActivity.click();
-        AccountActivity aa = new AccountActivity();
-        aa.findTransactions.click();
-        Thread.sleep(2000);
-//        aa.desciptionInput.sendKeys("asdasdasd");
-//        aa.toDateInput.click();
-        String asd1 = String.valueOf(2012);
-        String asd2 = String.valueOf(09);
-        String asd3 = new Integer(01).toString();
-        String asd = asd1+"-0"+asd2+"-"+asd3;
-        String asd4 = new Integer(06).toString();
-        String asdd = asd1+"-0"+asd2+"-"+asd4;
-        System.out.println("asd = " + asd);
-        System.out.println("asdd = " + asdd);
-
-        aa.fromDateInput.sendKeys(asd);
-        aa.toDateInput.sendKeys(asdd);
-//        aa.fromDateInput.click();
-
-        aa.submitButton.click();
     }
+
+    @Test
+    public void test2(){
+
+        String ss = String.valueOf(09);
+        Integer x = 09 + 10;
+        Byte y = 08;
+        Long l = 09;
+        Short s = 08;
+        Double d = 08;
+
+        String.valueOf(x);
+        System.out.println(x);
+
+        int i = 09;
+    }
+
 }
