@@ -1,6 +1,7 @@
 package com.zerobank.stepdefinitions;
 
 import com.zerobank.pages.*;
+import com.zerobank.utilities.BrowserUtils;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.After;
@@ -16,7 +17,7 @@ public class AccountActivityStepDefs {
     @Given("the user is logged in")
     public void the_user_is_logged_in() throws InterruptedException {
 
-        Driver.get().get(ConfigurationReader.get("url"));
+//        Driver.get().get(ConfigurationReader.get("url"));
         new MainPage().signButton.click();
         new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
 
@@ -28,11 +29,11 @@ public class AccountActivityStepDefs {
 //        new LoginPage().login(username,password);
 //        **  == Just try something ==  **
 
-
+        if(Driver.get().findElement(By.id("details-button")).isDisplayed()) {
 //          For pass to security FOR CHROME ( 2 Steps )
-        Driver.get().findElement(By.id("details-button")).click();
-        Driver.get().findElement(By.id("proceed-link")).click();
-
+            Driver.get().findElement(By.id("details-button")).click();
+            Driver.get().findElement(By.id("proceed-link")).click();
+        }
     }
 
     @When("the user clicks on Savings link on the Account Summary page")
