@@ -12,7 +12,7 @@ public class Hooks {
 
     @Before
     public void setUp(){
-        System.out.println("M");
+        System.out.println("Mecnun Deniz is starting the test");
     }
 
     @After

@@ -63,4 +63,52 @@ public class AccountActivityStepDefs {
 
     }
 
+    @When("the user clicks on Brokerage link on the Account Summary page")
+    public void the_user_clicks_on_Brokerage_link_on_the_Account_Summary_page() {
+        new AccountSummary().brokerage.click();
+    }
+
+    @Then("Account	drop down should have Brokerage selected")
+    public void account_drop_down_should_have_Brokerage_selected() {
+        Select select = new Select(new AccountActivity().accOptionSelect);
+        System.out.println("first option = " + select.getFirstSelectedOption().getText());
+        Assert.assertEquals("Brokerage", select.getFirstSelectedOption().getText());
+    }
+
+    @When("the user clicks on Checking link on the Account Summary page")
+    public void the_user_clicks_on_Checking_link_on_the_Account_Summary_page() {
+        new AccountSummary().checking.click();
+    }
+
+    @Then("Account drop down should have Checking selected")
+    public void account_drop_down_should_have_Checking_selected() {
+        Select select = new Select(new AccountActivity().accOptionSelect);
+        System.out.println("first option = " + select.getFirstSelectedOption().getText());
+        Assert.assertEquals("Checking", select.getFirstSelectedOption().getText());
+    }
+
+    @When("the user clicks on Credit card link on the Account Summary page")
+    public void the_user_clicks_on_Credit_card_link_on_the_Account_Summary_page() {
+        new AccountSummary().creditCard.click();
+    }
+
+    @Then("Account drop down should have Credit Card selected")
+    public void account_drop_down_should_have_Credit_Card_selected() {
+        Select select = new Select(new AccountActivity().accOptionSelect);
+        System.out.println("first option = " + select.getFirstSelectedOption().getText());
+        Assert.assertEquals("Credit Card", select.getFirstSelectedOption().getText());
+    }
+
+    @When("the user clicks on Loan link on the Account Summary page")
+    public void the_user_clicks_on_Loan_link_on_the_Account_Summary_page() {
+        new AccountSummary().loan.click();
+    }
+
+    @Then("Account drop down should have Loan selected")
+    public void account_drop_down_should_have_Loan_selected() {
+        Select select = new Select(new AccountActivity().accOptionSelect);
+        System.out.println("first option = " + select.getFirstSelectedOption().getText());
+        Assert.assertEquals("Loan", select.getFirstSelectedOption().getText());
+    }
+
 }
