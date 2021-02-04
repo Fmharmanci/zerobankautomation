@@ -1,9 +1,15 @@
 package com.zerobank.pages;
 
+import com.zerobank.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AccountSummary extends BasePage{
+
+    public AccountSummary(){
+        PageFactory.initElements(Driver.get(),this);
+    }
 
     @FindBy(xpath = "//tr[1]//a[text()='Savings']")
     public WebElement savings1;
