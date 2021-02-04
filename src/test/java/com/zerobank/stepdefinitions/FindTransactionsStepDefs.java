@@ -1,5 +1,7 @@
 package com.zerobank.stepdefinitions;
 
+import com.zerobank.pages.AccountActivity;
+import com.zerobank.pages.AccountSummary;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,9 +11,9 @@ public class FindTransactionsStepDefs {
 
     @Given("the user accesses the Find Transactions tab")
     public void the_user_accesses_the_Find_Transactions_tab() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
-    }
+        new AccountSummary().accountActivity.click();
+        new AccountActivity().findTransactions.click();
+        }
 
     @When("the user enters date range from “{int}-{int}-{int}” to “{int}-{int}-{int}”")
     public void the_user_enters_date_range_from_to(Integer int1, Integer int2, Integer int3, Integer int4, Integer int5, Integer int6) {

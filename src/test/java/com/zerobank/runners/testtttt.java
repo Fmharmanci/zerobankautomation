@@ -19,7 +19,6 @@ public class testtttt {
         Driver.get().get(ConfigurationReader.get("url"));
 
         new MainPage().signButton.click();
-//        Thread.sleep(4000);
         new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
 
 

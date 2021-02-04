@@ -28,4 +28,8 @@ public class AccountSummary extends BasePage{
 
     @FindBy(xpath = "//tr[1]//a[text()='Loan']")
     public WebElement loan;
+
+    @FindBy(xpath = "//a[text()='Account Activity']")
+    public WebElement accountActivity;
+
 }

@@ -30,15 +30,6 @@ public class Hooks {
 
     }
 
-//    @After
-//    public void tearDown(){
-//        Driver.closeDriver();
-//    }
 
-
-//    @Before("@wippp"){
-//        Driver.get().get(ConfigurationReader.get("url"));
-//
-//    }
 }
 

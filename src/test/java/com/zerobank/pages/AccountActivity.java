@@ -13,4 +13,7 @@ public class AccountActivity extends BasePage{
 
     @FindBy(name = "accountId")
     public WebElement accOptionSelect;
+
+    @FindBy(xpath = "//a[text()='Find Transactions']")
+    public WebElement findTransactions;
 }
