@@ -17,7 +17,7 @@ public class testtttt {
     @Test
     public void test1() throws InterruptedException {
         Driver.get().get(ConfigurationReader.get("url"));
-
+//        Driver.get().manage().window().maximize();
         new MainPage().signButton.click();
         new LoginPage().login(ConfigurationReader.get("username"),ConfigurationReader.get("password"));
 
@@ -27,15 +27,25 @@ public class testtttt {
         Driver.get().findElement(By.id("proceed-link")).click();
 
 
-        new AccountSummary().savings1.click();
+        new AccountSummary().accountActivity.click();
+        AccountActivity aa = new AccountActivity();
+        aa.findTransactions.click();
         Thread.sleep(2000);
+//        aa.desciptionInput.sendKeys("asdasdasd");
+//        aa.toDateInput.click();
+        String asd1 = String.valueOf(2012);
+        String asd2 = String.valueOf(09);
+        String asd3 = new Integer(01).toString();
+        String asd = asd1+"-0"+asd2+"-"+asd3;
+        String asd4 = new Integer(06).toString();
+        String asdd = asd1+"-0"+asd2+"-"+asd4;
+        System.out.println("asd = " + asd);
+        System.out.println("asdd = " + asdd);
 
-        System.out.println(Driver.get().getTitle());
-        Assert.assertTrue(Driver.get().getTitle().contains("Account Activity"));
+        aa.fromDateInput.sendKeys(asd);
+        aa.toDateInput.sendKeys(asdd);
+//        aa.fromDateInput.click();
 
-        Select select = new Select(new AccountActivity().accOptionSelect);
-        System.out.println("first option = " + select.getFirstSelectedOption().getText());
-        Assert.assertEquals("Savings", select.getFirstSelectedOption().getText());
-
+        aa.submitButton.click();
     }
 }

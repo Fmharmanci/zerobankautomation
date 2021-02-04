@@ -16,4 +16,16 @@ public class AccountActivity extends BasePage{
 
     @FindBy(xpath = "//a[text()='Find Transactions']")
     public WebElement findTransactions;
+
+    @FindBy(xpath = "//input[@id='aa_fromDate']")
+    public WebElement fromDateInput;
+
+    @FindBy(xpath = "//input[@id='aa_toDate']")
+    public WebElement toDateInput;
+
+    @FindBy(xpath = "//div/button")
+    public WebElement submitButton;
+
+    @FindBy(css = "#aa_description")
+    public WebElement desciptionInput;
 }
