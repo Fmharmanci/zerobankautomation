@@ -10,20 +10,25 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
-    @Before
-    public void setUp(){
-        System.out.println("Mecnun Deniz is starting the test");
-    }
-
-    @After
-    public void tearDown(Scenario scenario){
-
-        if(scenario.isFailed()){
-            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot,"image/png","screenshot");
-        }
-
-        Driver.closeDriver();
-    }
+//    @Before
+//    public void setUp(){
+//        System.out.println("Mecnun Deniz is starting the test");
+//    }
+//
+//    @After
+//    public void tearDown(Scenario scenario){
+//
+//        if(scenario.isFailed()){
+//            final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
+//            scenario.attach(screenshot,"image/png","screenshot");
+//        }
+//
+//        Driver.closeDriver();
+//    }
+//
+//    @After
+//    public void tearDown(){
+//        Driver.closeDriver();
+//    }
 
 }

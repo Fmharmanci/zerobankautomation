@@ -6,6 +6,7 @@ import com.zerobank.pages.LoginPage;
 import com.zerobank.pages.MainPage;
 import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
+import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -55,11 +56,12 @@ public class AccountActivityStepDefs {
     }
 
     @Then("Account drop down should have Savings selected")
-    public void account_drop_down_should_have_Savings_selected() {
+    public void account_drop_down_should_have_Savings_selected() throws InterruptedException {
 
         Select select = new Select(new AccountActivity().accOptionSelect);
         System.out.println("first option = " + select.getFirstSelectedOption().getText());
         Assert.assertEquals("Savings", select.getFirstSelectedOption().getText());
+        Thread.sleep(2000);
 
     }
 
@@ -109,6 +111,12 @@ public class AccountActivityStepDefs {
         Select select = new Select(new AccountActivity().accOptionSelect);
         System.out.println("first option = " + select.getFirstSelectedOption().getText());
         Assert.assertEquals("Loan", select.getFirstSelectedOption().getText());
+    }
+
+//    Why this @After is not working into the hooks java class....
+    @After
+    public void lastStep(){
+        Driver.closeDriver();
     }
 
 }
