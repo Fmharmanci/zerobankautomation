@@ -111,9 +111,9 @@ public class AccountActivityStepDefs {
     }
 
 //    Why this @After is not working into the hooks java class....
-    @After
-    public void lastStep(){
-        Driver.closeDriver();
-    }
+//    @After
+//    public void lastStep(){
+//        Driver.closeDriver();
+//    }
 
 }

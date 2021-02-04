@@ -1,6 +1,6 @@
-@ftransactions
-Feature: Find Transactions in Account Activity
 
+Feature: Find Transactions in Account Activity
+  @wippp
   Scenario: Search date range
     Given the user accesses the Find Transactions tab
     When the user enters date range from “2012-09-01” to “2012-09-06”
