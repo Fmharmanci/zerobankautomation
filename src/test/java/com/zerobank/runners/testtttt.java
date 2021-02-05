@@ -32,17 +32,6 @@ public class testtttt {
     @Test
     public void test2(){
 
-        String ss = String.valueOf(09);
-        Integer x = 09 + 10;
-        Byte y = 08;
-        Long l = 09;
-        Short s = 08;
-        Double d = 08;
-
-        String.valueOf(x);
-        System.out.println(x);
-
-        int i = 09;
     }
 
 }
