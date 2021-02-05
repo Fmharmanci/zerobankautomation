@@ -20,14 +20,17 @@ public class FindTransactionsStepDefs {
     @When("the user enters date range from “{int}-{int}-{int}” to “{int}-{int}-{int}”")
     public void the_user_enters_date_range_from_to(Integer fromYear, Integer fromMonth, Integer fromDay, Integer toYear, Integer toMonth, Integer toDay) throws InterruptedException {
 
+        String fromDate = fromYear+"-"+fromMonth+"-"+fromDay;
+        String toDate = toYear+"-"+toMonth+"-"+toDay;
 
         System.out.println("fromYear = " + fromYear);
         System.out.println("fromMonth = " + fromMonth);
         System.out.println("fromDay = " + fromDay);
+        System.out.println(fromDate);
         System.out.println("toYear = " + toYear);
         System.out.println("toMonth = " + toMonth);
         System.out.println("toDay = " + toDay);
-
+        System.out.println(toDate);
 //        new AccountActivity().fromDateInput.sendKeys(fromDate);
 //        new AccountActivity().toDateInput.sendKeys(toDate);
 //        new AccountActivity().submitButton.click();
