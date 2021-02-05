@@ -26,6 +26,7 @@ public class Hooks {
             scenario.attach(screenshot,"image/png","screenshot");
         }
 
+        System.out.println("Tested...");
        Driver.closeDriver();
 
     }
