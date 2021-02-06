@@ -9,9 +9,12 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 public class FindTransactionsStepDefs {
 
@@ -19,7 +22,7 @@ public class FindTransactionsStepDefs {
     public void the_user_accesses_the_Find_Transactions_tab() throws InterruptedException {
         new AccountSummary().accountActivity.click();
         new AccountActivity().findTransactions.click();
-        Thread.sleep(1000);
+        Thread.sleep(500);
     }
 
     @When("the user enters date range from “{int}-{int}-{int}” to “{int}-{int}-{int}”")
@@ -40,7 +43,7 @@ public class FindTransactionsStepDefs {
 
         new AccountActivity().submitButton.click();
 
-        Thread.sleep(2000);
+        Thread.sleep(500);
 
     }
 
@@ -201,7 +204,7 @@ public class FindTransactionsStepDefs {
 
             if (trDate.isEqual(ld[i])) {
                 check = false;
-            }else{
+            } else {
                 check = true;
             }
 
@@ -212,4 +215,137 @@ public class FindTransactionsStepDefs {
         Assert.assertTrue(check);
 
     }
+
+    @When("the user enters description {string}")
+    public void the_user_enters_description(String arg) {
+
+        new AccountActivity().desciptionInput.clear();
+        new AccountActivity().desciptionInput.sendKeys(arg.toUpperCase(Locale.ENGLISH));
+
+
+    }
+
+    @Then("results table should only show descriptions containing {string}")
+    public void results_table_should_only_show_descriptions_containing(String arg) {
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> descOfRow = accA.eachDescrOfRow;
+
+        String[] dates = new String[descOfRow.size()];
+
+        for (int i = 0; i < descOfRow.size(); i++) {
+
+            dates[i] = descOfRow.get(i).getText();
+        }
+
+        for (int i = 0; i < dates.length; i++) {
+
+            Assert.assertTrue(dates[i].contains(arg));
+
+        }
+
+    }
+
+    @Then("results table should not show descriptions containing {string}")
+    public void results_table_should_not_show_descriptions_containing(String arg) {
+
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> descOfRow = accA.eachDescrOfRow;
+
+        String[] dates = new String[descOfRow.size()];
+
+        for (int i = 0; i < descOfRow.size(); i++) {
+
+            dates[i] = descOfRow.get(i).getText();
+        }
+
+        for (int i = 0; i < dates.length; i++) {
+
+            Assert.assertFalse(dates[i].contains(arg));
+
+        }
+    }
+
+    @Then("results table should show at least one result under Deposit")
+    public void results_table_should_show_at_least_one_result_under_Deposit() {
+
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> deposit = accA.eachDepositOfRow;
+
+        boolean x = false;
+
+        for (int i = 0; i < deposit.size(); i++) {
+             if(!deposit.get(i).getText().equals("")){
+                 x = true;
+             }
+        }
+        Assert.assertTrue(x);
+
+    }
+
+    @Then("results table should show at least one result under Withdrawal")
+    public void results_table_should_show_at_least_one_result_under_Withdrawal() {
+
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> withDraw = accA.eachWithdrawOfRow;
+
+        boolean x = false;
+
+        for (int i = 0; i < withDraw.size(); i++) {
+            if(!withDraw.get(i).getText().equals("")){
+                x = true;
+            }
+        }
+
+        Assert.assertTrue(x);
+
+    }
+
+    @When("user selects type {string}")
+    public void user_selects_type(String arg) throws InterruptedException {
+
+
+        Select select = new Select(new AccountActivity().typeOption);
+
+        select.selectByVisibleText(arg);
+
+        new AccountActivity().submitButton.click();
+
+        Thread.sleep(500);
+
+
+    }
+
+    @Then("results table should show no result under Withdrawal")
+    public void results_table_should_show_no_result_under_Withdrawal() {
+
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> withDraw = accA.eachWithdrawOfRow;
+
+        boolean x = true;
+
+        for (int i = 0; i < withDraw.size(); i++) {
+            if(!withDraw.get(i).getText().equals("")){
+                x = false;
+            }
+        }
+        Assert.assertTrue(x);
+
+    }
+
+    @Then("results table should show no result under Deposit")
+    public void results_table_should_show_no_result_under_Deposit() {
+        AccountActivity accA = new AccountActivity();
+        List<WebElement> deposit = accA.eachDepositOfRow;
+
+        boolean x = true;
+
+        for (int i = 0; i < deposit.size(); i++) {
+            if(!deposit.get(i).getText().equals("")){
+                x = false;
+            }
+        }
+        Assert.assertTrue(x);
+    }
+
 }
+
