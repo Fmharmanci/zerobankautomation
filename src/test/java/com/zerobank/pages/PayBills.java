@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class PayBills extends BasePage{
 
     public PayBills(){
@@ -13,6 +15,9 @@ public class PayBills extends BasePage{
 
     @FindBy(css = "#tabs>ul>li:nth-of-type(2)")
     public WebElement addNewPayee;
+
+    @FindBy(css = "#tabs>ul>li:nth-of-type(3)")
+    public WebElement purchaseFCurrency;
 
     @FindBy(css = "#np_new_payee_name")
     public WebElement newPayeeName;
@@ -31,4 +36,16 @@ public class PayBills extends BasePage{
 
     @FindBy(css = "#alert_content")
     public WebElement successMsg;
+
+    @FindBy(css = "#pc_currency>option")
+    public List<WebElement> currencyOption;
+
+    @FindBy(css = "#pc_currency")
+    public WebElement currencyDropDown;
+
+    @FindBy(css = "#pc_calculate_costs")
+    public WebElement calculateButton;
+
+    @FindBy(css = "#pc_amount")
+    public WebElement amountInput;
 }
