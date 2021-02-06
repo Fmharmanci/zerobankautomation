@@ -35,7 +35,7 @@ Feature: Find Transactions in Account Activity
     When the user enters description "online"
     And clicks search
     Then results table should only show descriptions containing "ONLINE"
-  @wip
+
   Scenario: Type
     Given the user accesses the Find Transactions tab
     And clicks search

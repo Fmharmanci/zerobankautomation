@@ -32,4 +32,6 @@ public class AccountSummary extends BasePage{
     @FindBy(xpath = "//a[text()='Account Activity']")
     public WebElement accountActivity;
 
+    @FindBy(css = "#pay_bills_tab")
+    public WebElement payBills;
 }
