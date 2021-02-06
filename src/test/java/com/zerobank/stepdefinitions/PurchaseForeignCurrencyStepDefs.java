@@ -45,7 +45,6 @@ public class PurchaseForeignCurrencyStepDefs {
 
         new PayBills().amountInput.sendKeys("999");
         new PayBills().calculateButton.click();
-        Thread.sleep(4000);
 
     }
 
@@ -63,9 +62,7 @@ public class PurchaseForeignCurrencyStepDefs {
     public void user_tries_to_calculate_cost_without_entering_a_value() {
 
         Select select = new Select(new PayBills().currencyDropDown);
-
         select.selectByIndex(7);
-
         new PayBills().calculateButton.click();
     }
 
