@@ -20,6 +20,9 @@ public class LoginPage {
     @FindBy(name = "submit")
     public WebElement submit;
 
+    @FindBy(css = "#login_form>div:nth-of-type(1)")
+    public WebElement loginAlert;
+
     public void login(String user,String pass){
         username.sendKeys(user);
         password.sendKeys(pass);
