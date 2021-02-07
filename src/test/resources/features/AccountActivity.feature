@@ -1,4 +1,3 @@
-@mmm
 Feature: Account Activity Functionality
 
   Background:
