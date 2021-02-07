@@ -1,4 +1,3 @@
-@purchase
 Feature: Purchase Foreign Currency
 
   Background:

@@ -29,7 +29,7 @@
       When The user access the Pay Bills Page
       And User enters a value with alphabetical or special characters as an amount
       Then Amount field should not accept alphabetical or special characters
-    @mmm
+
     Scenario: Alphabetical Characters for Date Field
       When The user access the Pay Bills Page
       And User enters a date with alphabetical characters
