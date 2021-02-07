@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class AccountSummary extends BasePage{
 
     public AccountSummary(){
@@ -34,4 +36,10 @@ public class AccountSummary extends BasePage{
 
     @FindBy(css = "#pay_bills_tab")
     public WebElement payBills;
+
+    @FindBy(xpath = "//h2")
+    public List<WebElement> accTypes;
+
+    @FindBy(xpath = "//div[3]/div/table/thead/tr/th")
+    public List<WebElement> headersCreditAcc;
 }

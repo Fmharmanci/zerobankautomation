@@ -19,7 +19,7 @@ Feature: Login functionality
   Scenario: Login with blank password
     When User login with blank password
     Then User tries to login with invalid information, error message Login and or password are wrong. should be displayed
-  @mmm
+
   Scenario: Login with valid credentials
     When User login with valid credentials
     Then User logs in with valid credentials, Account summary page should be displayed
