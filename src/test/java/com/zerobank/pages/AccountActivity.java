@@ -16,6 +16,9 @@ public class AccountActivity extends BasePage{
     @FindBy(name = "accountId")
     public WebElement accOptionSelect;
 
+    @FindBy(css = "#aa_accountId>option")
+    public List<WebElement> accOptions;
+
     @FindBy(xpath = "//a[text()='Find Transactions']")
     public WebElement findTransactions;
 
@@ -45,5 +48,8 @@ public class AccountActivity extends BasePage{
 
     @FindBy(css = "#aa_type")
     public WebElement typeOption;
+
+    @FindBy(xpath = "//div[@id='all_transactions_for_account']//th")
+    public List<WebElement> headersTransaction;
 
 }

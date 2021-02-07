@@ -1,5 +1,5 @@
 
-@mmm
+
 Feature: Check Account Types in Account Summary
 
   Background:

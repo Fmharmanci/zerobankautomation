@@ -10,7 +10,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class AccountActivityStepDefs {
 
@@ -113,6 +116,56 @@ public class AccountActivityStepDefs {
         Select select = new Select(new AccountActivity().accOptionSelect);
         System.out.println("first option = " + select.getFirstSelectedOption().getText());
         Assert.assertEquals("Loan", select.getFirstSelectedOption().getText());
+
+    }
+
+//    2. part
+
+    @When("The user access the Account Activity Page")
+    public void the_user_access_the_Account_Activity_Page() {
+
+        new AccountSummary().accountActivity.click();
+
+    }
+
+    @Then("Account activity page should have the title Zero - Account Activity")
+    public void account_activity_page_should_have_the_title_Zero_Account_Activity() {
+
+        Assert.assertEquals(Driver.get().getTitle(),"Zero - Account Activity");
+    }
+
+    @Then("Account drop down default option should be Savings")
+    public void account_drop_down_default_option_should_be_Savings() {
+
+        Select s = new Select(new AccountActivity().accOptionSelect);
+        Assert.assertEquals(s.getFirstSelectedOption().getText(),"Savings");
+
+    }
+
+    @Then("Account drop down should have the following options")
+    public void account_drop_down_should_have_the_following_options(List<String> dataTable) {
+
+        List<String> actualOptions = BrowserUtils.getElementsText(new AccountActivity().accOptions);
+
+        for (int i = 0; i < dataTable.size(); i++) {
+
+            Assert.assertTrue(actualOptions.contains(dataTable.get(i)));
+
+        }
+
+
+    }
+
+    @Then("Transactions table should have columns names")
+    public void transactions_table_should_have_columns_names(List<String> dataTable) {
+
+        List<String> actualOptions = BrowserUtils.getElementsText(new AccountActivity().headersTransaction);
+
+        for (int i = 0; i < dataTable.size(); i++) {
+
+            Assert.assertTrue(actualOptions.contains(dataTable.get(i)));
+
+        }
 
     }
 
